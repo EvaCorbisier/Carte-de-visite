@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta aframe-injected name="mobile-web-app-capable" content="yes">
+  <title>Petits poèmes de l'explorateur</title>
+  <link rel="shortcut icon" href="./assets/icons/icon-128x128.png">
+  <link rel="stylesheet" href="./stylesar.css">
+
+  <!-- Lien vers bibliothèque aframe pour la AR et mindar pour l'image tracking ou mettre lien de celle que j'ai téléchargé dans js
+
+    <script src="https://aframe.io/releases/1.4.1/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.1/dist/mindar-image-aframe.prod.js"></script>
+
+    -->
+
+    <!-- Lien vers bibliothèque mindar supplémentaire pour multi tracking - voir docu : https://hiukim.github.io/mind-ar-js-doc/examples/multi-tracks
+    
+        <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    
+    -->
+
+    <script src="./js/aframe.min.js"></script>
+    <script src="./js/mindar-image-aframe.prod.js"></script>
+    <script src="./js/aframe-extras.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+          <!-- La div contenant la croix pour fermer la page -->
+
+        <a href=./index.html>
+            <div style="padding:5px ; width:fit-content; min-height: fit-content; background-color: transparent; position:absolute; left:24px; top:24px">
+                A <img class="button" src="./assets/icons/croix.svg"
+                style="width: 24px; filter: drop-shadow(0 0 0.75rem grey);" >
+            </div>
+        </a>
+
+        <!-- Faire des actions avec chacune de ces images -->
+
+        <div style="padding:5px ; width:fit-content; min-height: fit-content; background-color: transparent; position:absolute; right:12px; bottom:12px">
+           
+
+            <img id="boutonvoix"
+            src="./assets/icons/bouton_voix.svg"
+            style="width: 50px; padding:12px; opacity: 0.4;"
+            onload="voixOnOff()"
+            onclick="voixOnOff();">
+
+            <img id="boutonmusique" src="./assets/icons/bouton_musique.svg"
+            style="width: 50px; padding:12px; opacity: 0.4;"
+            onload="musiqueOnOff()"
+            onclick="musiqueOnOff();">  
+
+            <img id="boutonsoustitre" src="./assets/icons/bouton_soustitre.svg"
+            style="width: 50px; padding:12px; opacity: 0.4;"
+            onclick="soustitre1(); soustitre2(); soustitre3(); soustitre4(); soustitre5(); soustitre6(); soustitre7(); soustitre8(); soustitre9();">
+
+        </div>
+
+    </div>
+
+    <!-- Les sous titres par dessus la vue (gérés avec JS pour la visibilité ou non)-->
+
+    <div>
+        <video id="STpoeme1" src="./assets/audio/voix_poeme1.mp3" muted loop style="width: 100vw; visibility: hidden; background: transparent;
+        position: absolute; z-index: 12; bottom:10%; left: 0px;">
+            <track
+            src="./assets/soustitres/soustitres_poeme1.vtt"
+            kind="subtitles" srclang="fr" default/>
+        </video>
+
+        <video id="STpoeme2" src="./assets/audio/voix_poeme2.mp3" muted loop style="width: 100vw; visibility: hidden; background: transparent;
+        position: absolute; z-index: 12; bottom:10%; left: 0px;">
+            <track
+            src="./assets/soustitres/soustitres_poeme2.vtt"
+            kind="subtitles" srclang="fr" default/>
+        </video>
+
+        <video id="STpoeme3" src="./assets/audio/voix_poeme3.mp3" muted loop style="width: 100vw; visibility: hidden; background: transparent;
+        position: absolute; z-index: 12; bottom:10%; left: 0px;">
+            <track
+            src="./assets/soustitres/soustitres_poeme3.vtt"
+            kind="subtitles" srclang="fr" default/>
+        </video>
+
+        <video id="STpoeme4" src="./assets/audio/voix_poeme4.mp3" muted loop style="width: 100vw; visibility: hidden; background: transparent;
+        position: absolute; z-index: 12; bottom:10%; left: 0px;">
+            <track
+            src="./assets/soustitres/soustitres_poeme4.vtt"
+            kind="subtitles" srclang="fr" default/>
+        </video>
+
+        <video id="STpoeme5" src="./assets/audio/voix_poeme5.mp3" muted loop style="width: 100vw; visibility: hidden; background: transparent;
+        position: absolute; z-index: 12; bottom:10%; left: 0px;">
+            <track
+            src="./assets/soustitres/soustitres_poeme5.vtt"
+            kind="subtitles" srclang="fr" default/>
+        </video>
+
+        <video id="STpoeme6" src="./assets/audio/voix_poeme6.mp3" muted loop style="width: 100vw; visibility: hidden; background: transparent;
+        position: absolute; z-index: 12; bottom:10%; left: 0px;">
+            <track
+            src="./assets/soustitres/soustitres_poeme6.vtt"
+            kind="subtitles" srclang="fr" default/>
+        </video>
+
+        <video id="STpoeme7" src="./assets/audio/voix_poeme7.mp3" muted loop style="width: 100vw; visibility: hidden; background: transparent;
+        position: absolute; z-index: 12; bottom:10%; left: 0px;">
+            <track
+            src="./assets/soustitres/soustitres_poeme7.vtt"
+            kind="subtitles" srclang="fr" default/>
+        </video>
+
+        <video id="STpoeme8" src="./assets/audio/voix_poeme8.mp3" muted loop style="width: 100vw; visibility: hidden; background: transparent;
+        position: absolute; z-index: 12; bottom:10%; left: 0px;">
+            <track
+            src="./assets/soustitres/soustitres_poeme8.vtt"
+            kind="subtitles" srclang="fr" default/>
+        </video>
+
+        <video id="STpoeme9" src="./assets/audio/voix_poeme9.mp3" muted loop style="width: 100vw; visibility: hidden; background: transparent;
+        position: absolute; z-index: 12; bottom:10%; left: 0px;">
+            <track
+            src="./assets/soustitres/soustitres_poeme9.vtt"
+            kind="subtitles" srclang="fr" default/>
+        </video>
+
+    </div>
+
+ <!-- L'image compilé par mindar, fichier qui détecte les points de reconnaissance https://hiukim.github.io/mind-ar-js-doc/tools/compile -->
+ 
+ <!--Pour detecter plusieurs targets en même temps, et les afficher les 2 simultanément : écrire
+    mindar-image="imageTargetSrc: ./assets/target/couvetpoemes.mind; maxTrack:2" 
+    -->
+
+    <a-scene
+    mindar-image="imageTargetSrc: ./assets/target/couvetpoemes.mind;"
+    color-space="sRGB"
+    renderer="colorManagement: true, physicallyCorrectLights"
+    vr-mode-ui="enabled: false"
+    device-orientation-permission-ui="enabled: false"
+    z-index="0">
+
+        <a-assets>
+             <video id="vidcouverture" src="./assets/video/couverturevideo.mp4" muted loop playsinline></video>
+             <audio id="voixcouverture" src="./assets/audio/voix_titre.mp3" muted></audio>
+
+             <video id="vidpoeme1" src="./assets/video/poeme1compress4.mp4" muted loop playsinline></video>
+             <audio id="voixpoeme1" src="./assets/audio/voix_poeme1.mp3" muted loop></audio>
+
+             <video id="vidpoeme2" src="./assets/video/poeme2compress3.mp4" muted loop playsinline></video>
+             <audio id="voixpoeme2" src="./assets/audio/voix_poeme2.mp3" muted loop></audio>
+
+             <video id="vidpoeme3" src="./assets/video/poeme3compress3.mp4" muted loop playsinline></video>
+             <audio id="voixpoeme3" src="./assets/audio/voix_poeme3.mp3" muted loop></audio>
+
+             <video id="vidpoeme4" src="./assets/video/poeme4compress3.mp4" muted loop playsinline></video>
+             <audio id="voixpoeme4" src="./assets/audio/voix_poeme4.mp3" muted loop></audio>
+
+             <video id="vidpoeme5" src="./assets/video/poeme5compress3.mp4" muted loop playsinline></video>
+             <audio id="voixpoeme5" src="./assets/audio/voix_poeme5.mp3" muted loop></audio>
+
+             <video id="vidpoeme6" src="./assets/video/poeme6compress3.mp4" muted loop playsinline></video>
+             <audio id="voixpoeme6" src="./assets/audio/voix_poeme6.mp3" muted loop></audio>
+
+             <video id="vidpoeme7" src="./assets/video/poeme7compress3.mp4" muted loop playsinline></video>
+             <audio id="voixpoeme7" src="./assets/audio/voix_poeme7.mp3" muted loop></audio>
+
+             <video id="vidpoeme8" src="./assets/video/poeme8compress3.mp4" muted loop playsinlinee></video>
+             <audio id="voixpoeme8" src="./assets/audio/voix_poeme8.mp3" muted loop></audio>
+
+             <video id="vidpoeme9" src="./assets/video/poeme9compress2.mp4" muted loop playsinline></video>
+             <audio id="voixpoeme9" src="./assets/audio/voix_poeme9.mp3" muted loop></audio>
+        </a-assets>
+
+        <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+        <a-entity id="targetcouverture" mindar-image-target="targetIndex: 0">
+            <a-video src="#vidcouverture"> </a-video>
+            <a-sound src="#voixcouverture"></a-sound>
+        </a-entity>
+
+        <a-entity id="targetpoeme1" mindar-image-target="targetIndex: 1">
+            <a-video src="#vidpoeme1" width="1%" height="0.5%"> </a-video>
+            <a-sound src="#voixpoeme1"></a-sound>
+        </a-entity>
+
+        <a-entity id="targetpoeme2" mindar-image-target="targetIndex: 2">
+            <a-video src="#vidpoeme2" width="1%" height="0.5%"> </a-video>
+            <a-sound src="#voixpoeme2"></a-sound>
+        </a-entity>
+
+        <a-entity id="targetpoeme3" mindar-image-target="targetIndex: 3">
+            <a-video src="#vidpoeme3" width="1%" height="0.5%"> </a-video>
+            <a-sound src="#voixpoeme3"></a-sound>
+        </a-entity>
+
+        <a-entity id="targetpoeme4" mindar-image-target="targetIndex: 4">
+            <a-video src="#vidpoeme4" width="1%" height="0.5%"> </a-video>
+            <a-sound src="#voixpoeme4"></a-sound>
+        </a-entity>
+
+        <a-entity id="targetpoeme5" mindar-image-target="targetIndex: 5">
+            <a-video src="#vidpoeme5" width="1%" height="0.5%"> </a-video>
+            <a-sound src="#voixpoeme5"></a-sound>
+        </a-entity>
+
+        <a-entity id="targetpoeme6" mindar-image-target="targetIndex: 6">
+            <a-video src="#vidpoeme6" width="1%" height="0.5%"> </a-video>
+            <a-sound src="#voixpoeme6"></a-sound>
+        </a-entity>
+
+        <a-entity id="targetpoeme7" mindar-image-target="targetIndex: 7">
+            <a-video src="#vidpoeme7" width="1%" height="0.5%"> </a-video>
+            <a-sound src="#voixpoeme7"></a-sound>
+        </a-entity>
+        
+        <a-entity id="targetpoeme8" mindar-image-target="targetIndex: 8">
+            <a-video src="#vidpoeme8" width="1%" height="0.5%"> </a-video>
+            <a-sound src="#voixpoeme8"></a-sound>
+        </a-entity>
+
+        <a-entity id="targetpoeme9" mindar-image-target="targetIndex: 9">
+            <a-video src="#vidpoeme9" width="1%" height="0.5%"> </a-video>
+            <a-sound src="#voixpoeme9"></a-sound>
+        </a-entity>
+
+
+  </a-scene>
+
+
+     <!-- Lien vers MON JS à moi pour gérer les évènements -->
+     <script src="./js/index.js"></script>
+
+     <!-- Lien script vers la ressource Video js pour gérer mieux les vidéos "https://vjs.zencdn.net/8.3.0/video.min.js" -->
+
+
+</body>
+
+</html>

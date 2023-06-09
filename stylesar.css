@@ -23,6 +23,20 @@ div.container {
   
 }
 
+div.playbutton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: transparent;
+  z-index: 4;
+  
+}
+
 #boutonvoix {
   cursor: pointer; 
 }
