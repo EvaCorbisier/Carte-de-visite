@@ -23,7 +23,6 @@ sceneEl.addEventListener("arError", (event) => {
 // detect target found
 targetCarte.addEventListener("targetFound", event => {
   console.log("target found");
-  showreel.autoplay = true;
   showreel.play();
 });
 
