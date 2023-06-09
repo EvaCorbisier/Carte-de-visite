@@ -3,6 +3,18 @@
 var showreel = document.querySelector('#showreel')
 showreel.volume = 0.5;
 
+var boutonSon = document.querySelector('#boutonson')
+
+boutonSon.onclick = function () {
+  if(showreel.muted==false){
+    showreel.muted = true;
+    boutonSon.style.opacity = 0.5;
+  }
+else {
+  showreel.muted = false;
+  boutonSon.style.opacity = 1;
+}};
+
                     // SHOWREEL
 
 // ressources de création d'évènement pour la partie AR, target found etc, source : MindAR
