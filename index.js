@@ -25,7 +25,6 @@ targetCarte.addEventListener("targetFound", event => {
   console.log("target found");
   showreel.autoplay = true;
   showreel.play();
-  showreel.muted = false;
 });
 
 // detect target lost
