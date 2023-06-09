@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap');
+
+@font-face {
+  font-family: "Trenda";
+  src: url(./assets/Latinotype-Trenda-Bold.ttf);
+}
+
+* {
+  list-style-type: none;
+}
+body {
+  background-color: #2B3860;
+  color:  #F6F6F6;
+  text-align: center;
+  font-family: Trenda;
+  position: relative;
+}
+
+div.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: transparent;
+  z-index: 4;
+  
+}
+
+#boutonvoix {
+  cursor: pointer; 
+}
+
+#boutonmusique {
+  cursor: pointer; 
+}
+
+#boutonsoustitre {
+  cursor: pointer; 
+}
+
+h1 {
+  font-size: 2rem;
+  font-family: Rubik Dirt;
+  margin: 40px 10px 40px;
+  z-index: -3;
+}
+
+img.icon {
+  object-fit: cover;
+  width: 80%;
+  max-width: 450px;
+  margin: 5px;
+}
+
+img.header {
+  object-fit: cover;
+  width: 50%;
+  max-width: 450px;
+  margin: 30px;
+}
+
+img.button {
+  z-index: 2;
+}
+
+.result-container {
+  margin: 0 auto;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: auto;
+  max-width: 1400px;
+}
+li {
+  max-width: 400px;
+  border: 2px solid rgb(206, 206, 206);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+}
+h2 {
+  font-family: Trenda;
+  margin: 10px 0 25px;
+}
+
+/* Ne fonctionne pas */
+video::cue {
+  background-color: transparent;
+  z-index: 12;
+  filter: drop-shadow(0 0 0.75rem black);
+  color: #F6F6F6;
+  stroke: #2B3860;
+  stroke-width: 1px;
+  padding: 10px;
+}
+
+.boutonStart{
+  box-shadow: none;
+  background-color: #F6F6F6;
+  color: #2B3860;
+  font-family: Trenda;
+  font-size: medium;
+  border-radius: 20px;
+  padding: 10px;
+  stroke: none;
+  box-decoration-break: none;
+}
