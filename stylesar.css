@@ -11,11 +11,14 @@ body {
 
 div.container {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left:47vw;
+  top: 10%;
   background: transparent;
   z-index: 4;
-  vertical-align: bottom;
-  margin-top: 75vh;
-  margin-left: 75vw;
+  
 }
 
 div.playbutton {
